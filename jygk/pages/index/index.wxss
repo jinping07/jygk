@@ -1,8 +1,10 @@
 /**index.wxss**/
+/* 轮播图 */
 .slider,.slider swiper,.slider image{
   width: 100%;
   height:390rpx;
 }
+/* 通知栏 */
 .notice{
   width: 100%;
   height: 80rpx;
@@ -51,48 +53,58 @@
 }
 
 
-/*  */
-.movie-container{
+/* 热门推荐 */
+.recommend_container {
   display: flex;
   flex-direction: column;
   padding: 6%;
 }
-.movie-container .h1 {
+.recommend_container .h1 {
   width: 100%;
   height: 70rpx;
-  line-height: 70rpx;
+  /* line-height: 70rpx;   */
   text-align: center;
   font-size: 18px;
   color: #333;
   font-weight: bolder;
 }
-.navbar{
+.navbar {
   display: flex;
   /* position: absolute;
   left: 0;
   top: 0; */
   /* z-index: 500; */
   width: 100%;
-  height: 50px;
+  height: 100rpx;
   flex-direction: row;
   text-align: center;
-  color: #A8A8A8;
+  color: #a8a8a8;
   font-size: 15px;
   box-sizing: border-box;
-  background-color: #FFF;
-  border-bottom: 1rpx solid #DFDFDF;
+  /* background-color: #fff; */
+  /* border-bottom: 1rpx solid #dfdfdf; */
 }
-.navbar-item{
+.navbar_item {
   flex: 1;
   padding: 26rpx 0px;
 }
-.navbar-item-active{
+.navbar_item_active {
   transition: all 0.3s;
-  border-bottom: 10rpx solid #494949;
+  /* border-bottom: 10rpx solid #494949; */
   color: #494949;
 }
-
-.movie-content-wrapper{
+.navbar_fill {
+  width: 23%;
+  height: 8rpx;
+  margin: 6rpx auto;
+  border-radius: 20%;
+  background-color: #fff;
+}
+.navbar_fill_active {
+  transition: all 0.3s;
+  background-color: rgb(170, 255, 205);
+}
+.recommend_content_wrapper{
   padding-top: 50px;
 }
 

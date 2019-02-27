@@ -4,7 +4,7 @@
   <view class="slider">
     <swiper autoplay indicator-dots circular interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}">
       <swiper-item wx:for="{{list}}" wx:key="index">
-        <image src="{{item.img_url}}" lazy-load mode="aspectFill"></image>
+        <image src="{{item.image}}" lazy-load mode="aspectFill"></image>
       </swiper-item>
     </swiper>
   </view>
@@ -16,10 +16,10 @@
       <!-- <block wx:for="{{msgList}}" wx:key="index"> -->
         <!-- <navigator url="/pages/index/index?title={{item.url}}" open-type="navigate"> -->
           <swiper-item class="swiper_item" wx:for="{{msgList}}" wx:key="index">
-            <text class="title">{{item.title}}</text>
-            <text class="msg">{{item.msg}}</text>
-            <text class="title">{{msgList[index+1].title}}</text>
-            <text class="msg">{{msgList[index+1].msg}}</text>
+            <text class="title">{{item.type}}</text>
+            <text class="msg">{{item.title}}</text>
+            <text class="title">{{msgList[index+1].type}}</text> 
+            <text class="msg">{{msgList[index+1].title}}</text>
           </swiper-item>
         <!-- </navigator> -->
       <!-- </block> -->
@@ -28,17 +28,18 @@
   <view class="divide_r"></view>
   
   <!-- 热门推荐 -->
-  <view class="movie-container">
+  <view class="recommend_container">
     <view class="h1">热门推荐</view>
     <!-- 导航栏 -->
     <view class="navbar">
       <block wx:for="{{navbarTitle}}" wx:key="index">
-        <view class="navbar-item {{navbarActiveIndex === index ? 'navbar-item-active' : ''}}" data-navbar-index="{{index}}" catchtap="onNavBarTap">
+        <view class="navbar_item {{navbarActiveIndex === index ? 'navbar_item_active' : ''}}" data-navbar-index="{{index}}" catchtap="onNavBarTap">
           <text>{{item}}</text>
+          <view class="navbar_fill {{navbarActiveIndex === index ? 'navbar_fill_active' : ''}}" data-navbar-index="{{index}}" catchtap="onNavBarTap"></view>
         </view>
       </block>
     </view>
-    <view class="movie-content-wrapper">
+    <view class="recommend_content_wrapper">
       <swiper current="{{navbarActiveIndex}}" bindanimationfinish="onBindAnimationFinish">
         <swiper-item wx:for="{{navbarTitle}}" wx:key="index">
           <scroll-view scroll-y="{{true}}">

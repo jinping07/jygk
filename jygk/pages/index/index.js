@@ -34,29 +34,24 @@ Page({
   },
   loadMore:function(){
     wx.request({
-      url:"http://127.0.0.1:3000/imageList",
+      // url:"http://127.0.0.1:3000/imageList",
+      url:"http://gaokao.qixiuu.com/rest/index/index",
+      method: 'GET', 
+      header: {
+        'uid': '6'
+      },
       success:(res)=>{
         this.setData({
-          list:res.data,
+          list:res.data.data.banner,
+          msgList:res.data.data.notice,
         });
         console.log(res.data);
-      }
-    })
-  },
-  loadMsg:function(){
-    wx.request({
-      url:"http://127.0.0.1:3000/msgList",
-      success:(res)=>{
-        this.setData({
-          msgList:res.data,
-        });
       }
     })
   },
   onLoad:function(){
     // 生命周期函数--监听页面加载
     this.loadMore();
-    this.loadMsg();
   },
   onReady:function(){
     // 生命周期函数--监听页面初次渲染完成
