@@ -1,0 +1,22 @@
+/**app.wxss**/
+/* .container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+}  */
+.divide_r {
+  width: 92%;
+  height: 3rpx;
+  margin: 0 auto;
+  background-color: #e6e6e6;
+}
+.divide_c {
+  width: 3rpx;
+  height: 92%;
+  margin: auto 3%;
+  background-color: #e6e6e6;
+}

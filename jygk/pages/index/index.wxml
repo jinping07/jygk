@@ -1,0 +1,68 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- 轮播图 -->
+  <view class="slider">
+    <swiper autoplay indicator-dots circular interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}">
+      <swiper-item wx:for="{{list}}" wx:key="index">
+        <image src="{{item.img_url}}" lazy-load mode="aspectFill"></image>
+      </swiper-item>
+    </swiper>
+  </view>
+  <!-- 公告栏 -->
+  <view class='notice'>
+    <image src='/pages/img/index/notice_icon.png'></image>
+    <view class="divide_c"></view>
+    <swiper class="swiper_container" vertical autoplay circular interval="2000">
+      <!-- <block wx:for="{{msgList}}" wx:key="index"> -->
+        <!-- <navigator url="/pages/index/index?title={{item.url}}" open-type="navigate"> -->
+          <swiper-item class="swiper_item" wx:for="{{msgList}}" wx:key="index">
+            <text class="title">{{item.title}}</text>
+            <text class="msg">{{item.msg}}</text>
+            <text class="title">{{msgList[index+1].title}}</text>
+            <text class="msg">{{msgList[index+1].msg}}</text>
+          </swiper-item>
+        <!-- </navigator> -->
+      <!-- </block> -->
+    </swiper>
+  </view>
+  <view class="divide_r"></view>
+  
+  <!-- 热门推荐 -->
+  <view class="movie-container">
+    <view class="h1">热门推荐</view>
+    <!-- 导航栏 -->
+    <view class="navbar">
+      <block wx:for="{{navbarTitle}}" wx:key="index">
+        <view class="navbar-item {{navbarActiveIndex === index ? 'navbar-item-active' : ''}}" data-navbar-index="{{index}}" catchtap="onNavBarTap">
+          <text>{{item}}</text>
+        </view>
+      </block>
+    </view>
+    <view class="movie-content-wrapper">
+      <swiper current="{{navbarActiveIndex}}" bindanimationfinish="onBindAnimationFinish">
+        <swiper-item wx:for="{{navbarTitle}}" wx:key="index">
+          <scroll-view scroll-y="{{true}}">
+            {{item}}
+          </scroll-view>
+        </swiper-item>
+      </swiper>
+    </view>
+  </view>
+
+
+
+
+
+
+
+  <!-- <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view> -->
+</view>

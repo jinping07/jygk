@@ -1,0 +1,46 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "首页",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "pages/img/index/tab/home_home_icon.png",
+        "selectedIconPath": "pages/img/index/tab/home_home_icon_hl.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "名师",
+        "iconPath": "pages/img/index/tab/home_teacher_icon.png",
+        "selectedIconPath": "pages/img/index/tab/home_teacher_icon_hl.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "分类",
+        "iconPath": "pages/img/index/tab/home_classify_icon.png",
+        "selectedIconPath": "pages/img/index/tab/home_classify_icon_hl.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "试卷",
+        "iconPath": "pages/img/index/tab/home_test_icon.png",
+        "selectedIconPath": "pages/img/index/tab/home_test_icon_hl.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "我的",
+        "iconPath": "pages/img/index/tab/home_mine_icon.png",
+        "selectedIconPath": "pages/img/index/tab/home_mine_icon_hl.png"
+      }
+    ]
+  }
+}
