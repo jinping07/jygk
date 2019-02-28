@@ -3,7 +3,7 @@
   <!-- 轮播图 -->
   <view class="slider">
     <swiper autoplay indicator-dots circular interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}">
-      <swiper-item wx:for="{{list}}" wx:key="index">
+      <swiper-item wx:for="{{banner}}" wx:key="index">
         <image src="{{item.image}}" lazy-load mode="aspectFill"></image>
       </swiper-item>
     </swiper>
@@ -15,7 +15,7 @@
     <swiper class="swiper_container" vertical autoplay circular interval="2000">
       <!-- <block wx:for="{{msgList}}" wx:key="index"> -->
         <!-- <navigator url="/pages/index/index?title={{item.url}}" open-type="navigate"> -->
-          <swiper-item class="swiper_item" wx:for="{{msgList}}" wx:key="index">
+          <swiper-item class="swiper_item" wx:for="{{notice}}" wx:key="index">
             <text class="title">{{item.type}}</text>
             <text class="msg">{{item.title}}</text>
             <text class="title">{{msgList[index+1].type}}</text> 
@@ -28,7 +28,7 @@
   <view class="divide_r"></view>
   
   <!-- 热门推荐 -->
-  <view class="recommend_container">
+  <view class="recommend">
     <view class="h1">热门推荐</view>
     <!-- 导航栏 -->
     <view class="navbar">
@@ -39,11 +39,18 @@
         </view>
       </block>
     </view>
-    <view class="recommend_content_wrapper">
+    <view class="recommend_container">
       <swiper current="{{navbarActiveIndex}}" bindanimationfinish="onBindAnimationFinish">
-        <swiper-item wx:for="{{navbarTitle}}" wx:key="index">
+        <swiper-item wx:for="recommend" wx:key="index">
           <scroll-view scroll-y="{{true}}">
-            {{item}}
+            <view class="recommend_content" wx:for="{{index == 1 ? course :(index == 2 ? paper :teacher)}}" wx:key="index">
+              <image class="recommend_img" src="{{item.image}}"></image>
+              <view class="recommend_info">
+                <text class="recommend_name">{{item.name}}</text>
+                <text class="recommend_seb">学科：{{item.subject}}</text>
+                <text class="recommend_sch">{{item.school}}</text>
+              </view>
+            </view>
           </scroll-view>
         </swiper-item>
       </swiper>

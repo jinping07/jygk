@@ -3,8 +3,16 @@
 const app = getApp()
 Page({
   data:{
-    list: [],
-    msgList: [],
+    banner: [],     //轮播图
+    notice: [],  //公告栏
+    teacher:[],
+    course:[],
+    paper:[],
+    recommend:[
+      "teacher",
+      "course",
+      "paper",
+    ],
     interval: 2000,
     duration: 1000,
     indicatorColor: "rgba(0,0,0,.2)",
@@ -42,8 +50,11 @@ Page({
       },
       success:(res)=>{
         this.setData({
-          list:res.data.data.banner,
-          msgList:res.data.data.notice,
+          banner:res.data.data.banner,
+          notice:res.data.data.notice,
+          teacher:res.data.data.teacher,
+          course:res.data.data.course,
+          paper:res.data.data.paper,
         });
         console.log(res.data);
       }

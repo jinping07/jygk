@@ -54,12 +54,12 @@
 
 
 /* 热门推荐 */
-.recommend_container {
+.recommend {
   display: flex;
   flex-direction: column;
   padding: 6%;
 }
-.recommend_container .h1 {
+.recommend .h1 {
   width: 100%;
   height: 70rpx;
   /* line-height: 70rpx;   */
@@ -104,10 +104,28 @@
   transition: all 0.3s;
   background-color: rgb(170, 255, 205);
 }
-.recommend_content_wrapper{
-  padding-top: 50px;
+.recommend_container {
+  padding-top: 20rpx;
 }
-
+.recommend_content {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  /* padding: 2rpx; */
+}
+.recommend_container .recommend_img {
+  width: 180rpx;
+  height: 120rpx;
+  margin-right: 5%;
+}
+.recommend_container .recommend_info {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #333;
+}
 
 
 
