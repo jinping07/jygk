@@ -7,8 +7,8 @@
 /* 通知栏 */
 .notice{
   width: 100%;
-  height: 80rpx;
-  padding: 3%;
+  height: 88rpx;
+  padding: 3% 5%;
   display:flex;
   justify-content: space-between;
   /* align-content: center; */
@@ -16,11 +16,11 @@
 }
 .notice image{
   width: 13%;
-  height: 80rpx;
+  height: 88rpx;
 }
 .notice .swiper_container {
   width: 80%;
-  height: 80rpx;
+  height: 88rpx;
   /* margin:0 2%; */
 }
 .notice .swiper_item {
@@ -51,13 +51,45 @@
   width: 75%;
   margin-left: 1%;
 }
-
+/* 课程 */
+.sub {
+  min-height: 144rpx;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding: 0 5%;
+  margin-bottom: 2%;
+}
+.sub_content {
+  width: 29%;
+  height: 80rpx;
+  margin: 3% 1% 0 1%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1%;
+  border-radius: 20%;
+  box-shadow: 0 0 8px 0 rgba(136, 151, 163, 0.21);
+  color: #259368;
+  font-size: 28rpx;
+  /* text-align: center; */
+  /* line-height: 80rpx; */
+}
+.sub_content image {
+  width: 48rpx;
+  height: 48rpx;
+  margin-right: 10rpx;
+}
+/* .sub_content text {
+  line-height: 95rpx;\
+  height: 80rpx;
+} */
 
 /* 热门推荐 */
 .recommend {
   display: flex;
   flex-direction: column;
-  padding: 6%;
+  padding: 5%;
 }
 .recommend .h1 {
   width: 100%;
@@ -107,18 +139,24 @@
 .recommend_container {
   padding-top: 20rpx;
 }
+.recommend_container swiper{
+  
+  min-height: 540rpx;
+}
 .recommend_content {
   display: flex;
   flex-direction: row;
   width: 100%;
+  margin-bottom: 50rpx;
   /* padding: 2rpx; */
 }
-.recommend_container .recommend_img {
+.recommend_img {
   width: 180rpx;
   height: 120rpx;
+  border-radius: 10rpx;
   margin-right: 5%;
 }
-.recommend_container .recommend_info {
+.recommend_info {
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -126,9 +164,19 @@
   line-height: 1.5;
   color: #333;
 }
-
-
-
+.recommend_info text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.recommend_info .recommend_name {
+  font-size: 30rpx;
+}
+.recommend_price {
+  padding-left: 30rpx;
+  font-weight: bold;
+  color: #ff4242;
+}
 
 /* .userinfo {
   display: flex;

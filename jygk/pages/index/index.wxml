@@ -26,7 +26,30 @@
     </swiper>
   </view>
   <view class="divide_r"></view>
-  
+  <!-- 课程 -->
+  <view class="sub">
+    <view class="sub_content" wx:for="{{subject}}" wx:key="index">
+      <image src="{{item.image}}"></image>
+      <text>{{item.name}}课</text>
+    </view>
+    <!-- <view class="sub_content">
+      <image src="/pages/img/index/math_icon.png"></image>
+      <text>数学课</text>
+    </view>
+    <view class="sub_content">
+      <image src="/pages/img/index/math_icon.png"></image>
+      <text>数学课</text>
+    </view>
+    <view class="sub_content">
+      <image src="/pages/img/index/math_icon.png"></image>
+      <text>数学课</text>
+    </view>
+    <view class="sub_content">
+      <image src="/pages/img/index/math_icon.png"></image>
+      <text>数学课</text>
+    </view> -->
+  </view>  
+  <view class="divider"></view>
   <!-- 热门推荐 -->
   <view class="recommend">
     <view class="h1">热门推荐</view>
@@ -40,15 +63,61 @@
       </block>
     </view>
     <view class="recommend_container">
+    <!-- <view  class="recommend_container" hidden="{{navbarActiveIndex!==0}}" >
+      <view class="recommend_content" wx:for="{{teacher}}" wx:key="index">
+        <image class="recommend_img" src="{{item.image}}"></image>
+        <view class="recommend_info">
+            <text class="recommend_name">{{item.name}}</text>
+            <text class="recommend_seb">学科：{{item.subject)}}</text>
+            <text class="recommend_sch">{{item.school}}</text>
+          </view>
+      </view>
+    </view>
+    <view class="recommend_content" hidden="{{navbarActiveIndex!== 1}}">
+
+    </view>
+    <view class="recommend_content" hidden="{{navbarActiveIndex!== 2}}">
+
+    </view> -->
       <swiper current="{{navbarActiveIndex}}" bindanimationfinish="onBindAnimationFinish">
-        <swiper-item wx:for="recommend" wx:key="index">
-          <scroll-view scroll-y="{{true}}">
-            <view class="recommend_content" wx:for="{{index == 1 ? course :(index == 2 ? paper :teacher)}}" wx:key="index">
+        <swiper-item wx:for="{{navbarTitle}}" wx:key="index">
+          <scroll-view  scroll-y="true">
+            <!-- <view class="recommend_content" wx:for="{{index == 1 ? course :(index == 2 ? paper :teacher)}}" wx:key="index">
+              <image class="recommend_img" src="{{item.image}}"></image>
+              <view class="recommend_info">
+                <text class="recommend_name">{{item.name}}</text>
+                <text class="recommend_seb">{{navbarActiveIndex == 1 ? "主讲老师："+item.teacher :(navbarActiveIndex == 2 ? "试卷" : "学科："+item.subject)}}</text>
+                <text class="recommend_sch">{{navbarActiveIndex == 0 ? item.school : "学科："+item.subject }}</text>
+              </view>
+            </view> -->
+            <view class="recommend_content" hidden="{{navbarActiveIndex!==0}}" wx:for="{{teacher}}" wx:key="index" catchtap="handleJump" data-id="{{item.id}}">
               <image class="recommend_img" src="{{item.image}}"></image>
               <view class="recommend_info">
                 <text class="recommend_name">{{item.name}}</text>
                 <text class="recommend_seb">学科：{{item.subject}}</text>
                 <text class="recommend_sch">{{item.school}}</text>
+              </view>
+            </view>
+            <view class="recommend_content" hidden="{{navbarActiveIndex!==1}}" wx:for="{{course}}" wx:key="index">
+              <image class="recommend_img" src="{{item.image}}"></image>
+              <view class="recommend_info">
+                <text class="recommend_name">{{item.name}}</text>
+                <text class="recommend_seb">主讲老师：{{item.teacher}}</text>
+                <view class="recommend_sch">
+                  <text>学科：{{item.subject}}</text>
+                  <text class="recommend_price">￥{{item.price}}</text>
+                </view>
+              </view>
+            </view>
+            <view class="recommend_content" hidden="{{navbarActiveIndex!==2}}" wx:for="{{paper}}" wx:key="index">
+              <image class="recommend_img" src="{{item.image}}"></image>
+              <view class="recommend_info">
+                <text class="recommend_name">{{item.name}}</text>
+                <text class="recommend_seb"> </text>
+                <view class="recommend_sch">
+                  <text>学科：{{item.subject}}</text>
+                  <text class="recommend_price">￥{{item.price}}</text>
+                </view>
               </view>
             </view>
           </scroll-view>

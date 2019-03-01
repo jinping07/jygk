@@ -5,14 +5,10 @@ Page({
   data:{
     banner: [],     //轮播图
     notice: [],  //公告栏
+    subject:[],
     teacher:[],
     course:[],
     paper:[],
-    recommend:[
-      "teacher",
-      "course",
-      "paper",
-    ],
     interval: 2000,
     duration: 1000,
     indicatorColor: "rgba(0,0,0,.2)",
@@ -25,7 +21,6 @@ Page({
     ]
   },
   onNavBarTap: function (e) {
-    console.log(e);
     // 获取点击的navbar的index
     let navbarTapIndex = e.currentTarget.dataset.navbarIndex;
     // 设置data属性中的navbarActiveIndex为当前点击的navbar
@@ -34,7 +29,6 @@ Page({
     })
   },
   onBindAnimationFinish: function (e) {
-    console.log(e);
     // 设置data属性中的navbarActiveIndex为当前点击的navbar
     this.setData({
       navbarActiveIndex: e.detail.current
@@ -50,15 +44,20 @@ Page({
       },
       success:(res)=>{
         this.setData({
-          banner:res.data.data.banner,
-          notice:res.data.data.notice,
-          teacher:res.data.data.teacher,
-          course:res.data.data.course,
-          paper:res.data.data.paper,
+          banner: res.data.data.banner,
+          notice: res.data.data.notice,
+          teacher: res.data.data.teacher,
+          course: res.data.data.course,
+          paper: res.data.data.paper,
+          subject: res.data.data.subject,
         });
         console.log(res.data);
       }
     })
+  },
+  handleJump:function(e){
+    //1:获取自定义属性
+    console.log(e.currentTarget.dataset.id);
   },
   onLoad:function(){
     // 生命周期函数--监听页面加载
